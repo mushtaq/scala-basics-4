@@ -1,4 +1,6 @@
 import day4.Monoid
+import play.api.libs.json.Json
+
 object X {
   trait Animal
   case class Lion(name: String) extends Animal

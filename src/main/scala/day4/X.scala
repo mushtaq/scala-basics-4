@@ -2,6 +2,17 @@ package day4
 
 object X {
 
+  implicit class Tapper[T](val x: T) extends AnyVal {
+    def tap(msg: String = "tapped") = try {
+      println(s"$msg: $x")
+      x
+    } catch {
+      case ex: Throwable =>
+        println(s"$msg: <error> $ex")
+        throw ex
+    }
+  }
+
   implicit class RichT[T](val t: T) extends AnyVal {
     def hello = s"hello $t"
     def value = t
